@@ -1,8 +1,8 @@
 #pragma once
-#include "Layout.h"
+#include "Parts.h"
 
 
-class Screen : public Layout
+class Screen : public Parts
 {
 private:
 
@@ -11,7 +11,7 @@ private:
 
 
 public:
-
+	Screen(Layout* frame);
 
 
 

@@ -1,4 +1,5 @@
 #include "Core.h"
+#define DEBUG 1
 
 
 void Core::Run()
@@ -11,15 +12,21 @@ void Core::Run()
 	Layout* optionPage = layoutFactory.optionPage();
 	Layout* exitAskPage = layoutFactory.exitAskPage();
 	Layout* exitPage = layoutFactory.exitPage();
+	Layout* basicCalcPage = layoutFactory.basicCalcPage();
+
+
+
 	string nextMenu = "mainMenuPage";
 	string currentMenu = "mainMenuPage";
 	string prevMenu = "mainMenuPage";
 
+#if !DEBUG
 	Sleep(1000);
 	introPage->Print();
 	Sleep(3000);
 	introPage->Erase();
 	Sleep(1000);
+#endif
 
 	mainFrame->Print();
 
@@ -31,29 +38,34 @@ void Core::Run()
 		//////////////
 		//*  Menu  *//
 		//////////////
+
 		if (nextMenu == "mainMenuPage")
 		{
 			mainMenuPage->Print();
-			nextMenu = mainMenuPage->Selector();
+			nextMenu = mainMenuPage->Select();
 			mainMenuPage->Erase();
 		}
 
-		else if (nextMenu == "startCalc")
+		else if (nextMenu == "startCalcPage")
 		{
 			startCalcPage->Print();
-			nextMenu = startCalcPage->Selector();
+			nextMenu = startCalcPage->Select();
 			startCalcPage->Erase();
-			nextMenu = "mainMenuPage"; // TEMP
 		}
 
 		else if (nextMenu == "optionPage")
 		{
 			optionPage->Print();
-			nextMenu = optionPage->Selector();
+			nextMenu = optionPage->Select();
 			optionPage->Erase();
 		}
 
-
+		else if (nextMenu == "basicCalcPage")
+		{
+			basicCalcPage->Print();
+			nextMenu = basicCalcPage->Select();
+			basicCalcPage->Erase();
+		}
 
 
 
@@ -61,13 +73,13 @@ void Core::Run()
 		//*  ESC Check  *//
 		///////////////////
 
-		if (nextMenu == "ESC" || nextMenu == "exitAskPage")
+		if (nextMenu == "exitAskPage")
 		{
 			if (currentMenu == "mainMenuPage")
 			{
 				exitAskPage->Print();
 
-				if (exitAskPage->Selector() == "yes")
+				if (exitAskPage->Select() == "yes")
 				{
 					exitAskPage->Erase();
 					exitPage->Print();

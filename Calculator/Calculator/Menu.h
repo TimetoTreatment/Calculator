@@ -1,21 +1,21 @@
 #pragma once
-#include "Layout.h"
+#include "Parts.h"
 
-class Menu : public Layout
+class Menu : public Parts
 {
 private:
 	bool _isSelected;
 
+
 public:
 	Menu(Layout* frame);
+
 
 	///////////
 	/*  Set  */
 	///////////
 
-	void SetSelected();
-	void SetNotSelected();
-	bool isSelected();
+	
 
 
 
@@ -24,6 +24,15 @@ public:
 
 
 
+
+
+	bool GetisSelected()
+	{
+		return _isSelected;
+	}
+
+
+	
 
 };
 

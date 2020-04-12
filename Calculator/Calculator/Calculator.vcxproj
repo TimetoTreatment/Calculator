@@ -144,6 +144,7 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Layout.cpp" />
     <ClCompile Include="LayoutFactory.cpp" />
+    <ClCompile Include="Parts.cpp" />
     <ClCompile Include="_main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Screen.cpp" />
@@ -157,11 +158,16 @@
     <ClInclude Include="Layout.h" />
     <ClInclude Include="LayoutFactory.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Parts.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="State.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="입력값.txt" />
+    <Text Include="아스키아트.txt" />
+    <Text Include="스택.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

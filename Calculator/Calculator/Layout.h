@@ -49,12 +49,10 @@ private:
 	Layout* _currentPart;
 	string _eraser;
 	Cinout cinout;
-	
 	void MovePartIndexPrev();
 	void MovePartIndexNext();
 	Layout* GetPart();
-
-
+	string _prevName;
 
 protected:
 	int _startRow;		// Left top row of Layout
@@ -64,11 +62,13 @@ protected:
 	string _textColor;
 	string _backColor;
 	vector<string> _strings;
-	string _layoutType;
+	string _type;
 	Layout* _frame;
+	bool _highlight;
 
+	void DrawSelect();
 
-	
+	void EraseSelect();
 
 public:
 	Layout();
@@ -82,6 +82,7 @@ public:
 	// Set member of Layout.
 
 	void SetName(string name);
+	void SetPrevName(string prevName) { _prevName = prevName; }
 	void SetCoord(int startRow, int startCol);
 	void SetRelativeCoord(int relativeRow, int relativeCol);
 	void SetSize(int height, int width);
@@ -100,9 +101,14 @@ public:
 	// Get member of Layout.
 
 	string GetName() const { return _name; }
+	string GetPrevName() const { return _prevName; }
 	int GetStartRow() const { return _startRow; }
 	int GetStartCol() const { return _startCol; }
 	Layout* GetFrame() const { return _frame; }
+	string GetType() const { return _type; }
+
+	/* Return first string */
+	string Peek() const;
 
 
 	//-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -117,9 +123,8 @@ public:
 	/* Erase Layout from console */
 	void Erase();
 
-	/* Return first string */
-	string Peek() const;
-
 	/* Iterate over Menus, Buttons, Screens */
-	string Selector();
+	string Select();
+
+
 };

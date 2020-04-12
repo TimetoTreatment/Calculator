@@ -78,7 +78,7 @@ Layout* LayoutFactory::introPage(int startRow, int startCol)
 
 	introPage->SetCoord(3, 3);
 	introPage->SetSize(25, 110);
-	
+
 	team->SetName("team");
 	team->SetColor("white");
 	team->SetRelativeCoord(1, 25);
@@ -94,7 +94,7 @@ Layout* LayoutFactory::introPage(int startRow, int startCol)
 	member->SetName("member");
 	member->SetRelativeCoord(1, 39);
 	member->SetColor("white");
-	member->PushString("윤건호  앵무새  밥무새  코뉴어");
+	member->PushString("윤건호  파이크  우르곳  라이즈");
 
 	project->SetName("project");
 	project->SetColor("green");
@@ -123,6 +123,7 @@ Layout* LayoutFactory::mainMenuPage(int startRow, int startCol)
 	Menu* exit = new Menu(mainMenuPage);
 
 	mainMenuPage->SetName("mainMenuPage");
+	mainMenuPage->SetPrevName("exitAskPage");
 	mainMenuPage->SetCoord(startRow, startCol);
 	mainMenuPage->SetSize(25, 30);
 
@@ -134,7 +135,7 @@ Layout* LayoutFactory::mainMenuPage(int startRow, int startCol)
 	title->PushString("MainMenu", "white");
 
 	startCalc->PushString("Start Calculator", "red");
-	startCalc->SetName("startCalc");
+	startCalc->SetName("startCalcPage");
 	startCalc->SetRelativeCoord(20, 5);
 	startCalc->SetFirstPart();
 
@@ -157,6 +158,7 @@ Layout* LayoutFactory::optionPage()
 	Menu* back = new Menu(optionPage);
 
 	optionPage->SetName("optionPage");
+	optionPage->SetPrevName("mainMenuPage");
 	optionPage->SetCoord(5, 48);
 	optionPage->SetSize(20, 30);
 
@@ -234,14 +236,10 @@ Layout* LayoutFactory::startCalcPage(int startRow, int startCol)
 	Menu* advencedCalcMenu = new Menu(startCalcPage);
 
 	startCalcPage->SetName("startCalcPage");
+	startCalcPage->SetPrevName("mainMenuPage");
 	startCalcPage->SetCoord(2, 10);
 	startCalcPage->SetSize(25, 100);
 
-
-
-
-	//basicCalcTitle->PushString("< Basic Calculator >", "white");
-	//basicCalcTitle->SetRelativeCoord(0, 17);
 
 	basicCalcLayout->SetName("basicCalcLayout");
 	basicCalcLayout->SetRelativeCoord(3, 0);
@@ -275,8 +273,7 @@ Layout* LayoutFactory::startCalcPage(int startRow, int startCol)
 	basicCalcSpec->PushString("");
 	basicCalcSpec->PushString("* Four operations support.");
 
-
-	basicCalcMenu->SetName("basicCalcSelect");
+	basicCalcMenu->SetName("basicCalcPage");
 	basicCalcMenu->SetRelativeCoord(6, 9);
 	basicCalcMenu->PushString("BASIC", "blue");
 	basicCalcMenu->SetFirstPart();
@@ -293,11 +290,71 @@ Layout* LayoutFactory::startCalcPage(int startRow, int startCol)
 	advencedCalcSpec->PushString("");
 	advencedCalcSpec->PushString("* TouchScreen support.");
 
-	advencedCalcMenu->SetName("advencedCalcSelect");
+	advencedCalcMenu->SetName("advencedCalcPage");
 	advencedCalcMenu->SetRelativeCoord(6, 81);
 	advencedCalcMenu->PushString("ADVENCE", "red");
 
-
-
 	return startCalcPage;
+}
+
+Layout* LayoutFactory::basicCalcPage()
+{
+	Layout* basicCalcPage = new Layout;
+
+	Layout* basicCalcLayout = new Layout(basicCalcPage);
+	Screen* basicCalcScreen = new Screen(basicCalcPage);
+
+	basicCalcPage->SetCoord(1, 2);
+	basicCalcPage->SetSize(28, 115);
+	basicCalcPage->SetName("basicCalcPage");
+	basicCalcPage->SetPrevName("startCalcPage");
+
+	basicCalcLayout->SetRelativeCoord(1, 3);
+	basicCalcLayout->SetColor("white");
+	basicCalcLayout->PushString(" _____________________________________");
+	basicCalcLayout->PushString("|  _________________________________  |");
+	basicCalcLayout->PushString("| |                                 | |");
+	basicCalcLayout->PushString("| |                    9519 + 74351 | |");
+	basicCalcLayout->PushString("| |                         = 83870 | |");
+	basicCalcLayout->PushString("| |_________________________________| |");
+	basicCalcLayout->PushString("|  _______ _______ _______   _______  |");
+	basicCalcLayout->PushString("| |       |       |       | |       | |");
+	basicCalcLayout->PushString("| |   7   |   8   |   9   | |   +   | |");
+	basicCalcLayout->PushString("| |       |       |       | |       | |");
+	basicCalcLayout->PushString("| |_______|_______|_______| |_______| |");
+	basicCalcLayout->PushString("| |       |       |       | |       | |");
+	basicCalcLayout->PushString("| |   4   |   5   |   6   | |   -   | |");
+	basicCalcLayout->PushString("| |       |       |       | |       | |");
+	basicCalcLayout->PushString("| |_______|_______|_______| |_______| |");
+	basicCalcLayout->PushString("| |       |       |       | |       | |");
+	basicCalcLayout->PushString("| |   1   |   2   |   3   | |   *   | |");
+	basicCalcLayout->PushString("| |       |       |       | |       | |");
+	basicCalcLayout->PushString("| |_______|_______|_______| |_______| |");
+	basicCalcLayout->PushString("| |       |       |       | |       | |");
+	basicCalcLayout->PushString("| |   .   |   0   |   =   | |   /   | |");
+	basicCalcLayout->PushString("| |       |       |       | |       | |");
+	basicCalcLayout->PushString("| |       |       |       | |       | |");
+	basicCalcLayout->PushString("| |_______|_______|_______| |_______| |");
+	basicCalcLayout->PushString("|_____________________________________|");
+
+
+
+
+
+
+
+
+
+	//Layout* historyLayout = new Layout;
+	//Screen* historyScreen = new Screen;
+
+
+
+
+
+
+
+
+
+	return basicCalcPage;
 }

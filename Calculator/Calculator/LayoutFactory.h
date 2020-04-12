@@ -25,5 +25,6 @@ public:
 	Layout* exitAskPage();
 	Layout* exitPage();
 	Layout* startCalcPage(int startRow, int startCol);
+	Layout* basicCalcPage();
 };
 

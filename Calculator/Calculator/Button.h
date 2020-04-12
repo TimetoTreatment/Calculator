@@ -1,10 +1,16 @@
 #pragma once
-#include "Layout.h"
+#include "Parts.h"
 
 
-class Button : protected Layout
+class Button : protected Parts
 {
-	
+private:
+
+
+
+
+public:
+	Button(Layout* frame);
 
 
 

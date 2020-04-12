@@ -9,8 +9,9 @@ Layout::Layout()
 	_height = 0;
 	_textColor = "default";
 	_backColor = "default";
-	_layoutType = "layout";
+	_type = "layout";
 	_frame = NULL;
+	_highlight = false;
 }
 
 Layout::Layout(Layout* frame) : Layout::Layout()
@@ -29,7 +30,7 @@ void Layout::MovePartIndexPrev()
 		if (_currentPartIndex == -1)
 			_currentPartIndex = _parts.size() - 1;
 
-		if (GetPart()->_layoutType != "layout")
+		if (GetPart()->_type != "layout")
 			break;
 	}
 }
@@ -43,7 +44,7 @@ void Layout::MovePartIndexNext()
 		if (_currentPartIndex == _parts.size())
 			_currentPartIndex = 0;
 
-		if (GetPart()->_layoutType != "layout")
+		if (GetPart()->_type != "layout")
 			break;
 	}
 }
@@ -114,7 +115,7 @@ void Layout::AddPart(Layout* part)
 {
 	_parts.emplace_back(part);
 
-	if (part->_layoutType == "layout")
+	if (part->_type == "layout")
 		_currentPartIndex++;
 
 	part->_frame = this;
@@ -169,10 +170,10 @@ string Layout::Peek() const
 }
 
 
-string Layout::Selector()
+string Layout::Select()
 {
 	int command;
-	cinout.drawSideArrow(GetPart()->GetStartRow(), GetPart()->GetStartCol(), GetPart()->Peek());
+	DrawSelect();
 
 	for (;;)
 	{
@@ -180,27 +181,80 @@ string Layout::Selector()
 		{
 			command = cinout.inStatic();
 
-			cinout.eraseSideArrow(GetPart()->GetStartRow(), GetPart()->GetStartCol(), GetPart()->Peek());
+			EraseSelect();
 
 			if (command == UP || command == RIGHT)	MovePartIndexPrev();
 			else    /*  DOWN || LEFT   */			MovePartIndexNext();
 
-			cinout.drawSideArrow(GetPart()->GetStartRow(), GetPart()->GetStartCol(), GetPart()->Peek());
-
+			DrawSelect();
 		}
 		else if (command == ENTER)
 		{
-			cinout.eraseSideArrow(GetPart()->GetStartRow(), GetPart()->GetStartCol(), GetPart()->Peek());
+			EraseSelect();
+
 			return GetPart()->GetName();
 		}
 		else if (command == ESC)
 		{
-			cinout.eraseSideArrow(GetPart()->GetStartRow(), GetPart()->GetStartCol(), GetPart()->Peek());
-			return "ESC";
+			EraseSelect();
+			return GetPrevName();
 		}
 	}
+}
+
+
+void Layout::DrawSelect()
+{
+	if (GetPart()->GetType() == "menu")			// Draw Arrow
+	{
+		cinout.drawSideArrow(GetPart()->GetStartRow(), GetPart()->GetStartCol(), GetPart()->Peek());
 
 
 
 
+
+
+	}
+
+	else if (GetPart()->GetType() == "button")	// Draw Highlight
+	{
+
+
+	
+	}
+
+	else if (GetPart()->GetType() == "screen")	// Draw Cursor Prompt
+	{
+
+
+
+	}
+}
+
+void Layout::EraseSelect()
+{
+	if (GetPart()->GetType() == "menu")			// Draw Arrow
+	{
+		cinout.eraseSideArrow(GetPart()->GetStartRow(), GetPart()->GetStartCol(), GetPart()->Peek());
+
+
+
+
+
+
+	}
+
+	else if (GetPart()->GetType() == "button")	// Draw Highlight
+	{
+
+
+
+	}
+
+	else if (GetPart()->GetType() == "screen")	// Draw Cursor Prompt
+	{
+
+
+
+	}
 }
