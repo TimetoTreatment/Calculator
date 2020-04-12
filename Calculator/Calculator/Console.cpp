@@ -24,6 +24,7 @@ int Console::colorNameToNumber(string& colorName)
 	else if (colorName == "purple")	return 13;	// PURPLE
 	else if (colorName == "yellow")	return 14;	// YELLOW
 	else if (colorName == "white")	return 15;	// WHITE
+	else if (colorName == "black")	return 0;	// BLACK
 	return -1;
 }
 

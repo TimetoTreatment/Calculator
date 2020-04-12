@@ -60,12 +60,55 @@ Layout* LayoutFactory::mainFrame(int startRow, int startCol)
 
 	mainFrame->PushString(frameTop);
 
-	for (int row = 2; row <= 29; row++)
+	for (int row = 1; row <= 28; row++)
 		mainFrame->PushString(frameSide);
 
 	mainFrame->PushString(frameBottom);
 
 	return mainFrame;
+}
+
+
+Layout* LayoutFactory::introPage(int startRow, int startCol)
+{
+	Layout* introPage = new Layout;
+	Layout* team = new Layout(introPage);
+	Layout* member = new Layout(introPage);
+	Layout* project = new Layout(introPage);
+
+	introPage->SetCoord(3, 3);
+	introPage->SetSize(25, 110);
+	
+	team->SetName("team");
+	team->SetColor("white");
+	team->SetRelativeCoord(1, 25);
+	team->PushString(" /$$$$$$$$                                        /$$");
+	team->PushString("|__  $$__/                                      /$$$$");
+	team->PushString("   | $$  /$$$$$$   /$$$$$$  /$$$$$$/$$$$       |_  $$");
+	team->PushString("   | $$ /$$__  $$ |____  $$| $$   $$   $$        | $$");
+	team->PushString("   | $$| $$$$$$$$  /$$$$$$$| $$‖ $$‖ $$        | $$");
+	team->PushString("   | $$| $$_____/ /$$__  $$| $$ | $$ | $$        | $$");
+	team->PushString("   | $$|  $$$$$$$|  $$$$$$$| $$ | $$ | $$       /$$$$$$");
+	team->PushString("   |__/ ‖______/ ‖______/|__/ |__/ |__/      |______/");
+
+	member->SetName("member");
+	member->SetRelativeCoord(1, 39);
+	member->SetColor("white");
+	member->PushString("辣扒龋  巨公货  逛公货  内春绢");
+
+	project->SetName("project");
+	project->SetColor("green");
+	project->SetRelativeCoord(14, 4);
+	project->PushString(":'######:::::'###::::'##::::::::'######::'##::::'##:'##::::::::::'###::::'########::'#######::'########::");
+	project->PushString("'##... ##:::'## ##::: ##:::::::'##... ##: ##:::: ##: ##:::::::::'## ##:::... ##..::'##.... ##: ##.... ##:");
+	project->PushString(" ##:::..:::'##:. ##:: ##::::::: ##:::..:: ##:::: ##: ##::::::::'##:. ##::::: ##:::: ##:::: ##: ##:::: ##:");
+	project->PushString(" ##:::::::'##:::. ##: ##::::::: ##::::::: ##:::: ##: ##:::::::'##:::. ##:::: ##:::: ##:::: ##: ########::");
+	project->PushString(" ##::::::: #########: ##::::::: ##::::::: ##:::: ##: ##::::::: #########:::: ##:::: ##:::: ##: ##.. ##:::");
+	project->PushString(" ##::: ##: ##.... ##: ##::::::: ##::: ##: ##:::: ##: ##::::::: ##.... ##:::: ##:::: ##:::: ##: ##::. ##::");
+	project->PushString(". ######:: ##:::: ##: ########:. ######::. #######:: ########: ##:::: ##:::: ##::::. #######:: ##:::. ##:");
+	project->PushString(":......:::..:::::..::........:::......::::.......:::........::..:::::..:::::..::::::.......:::..:::::..::");
+
+	return introPage;
 }
 
 
@@ -98,9 +141,9 @@ Layout* LayoutFactory::mainMenuPage(int startRow, int startCol)
 	option->PushString("Option", "green");
 	option->SetName("optionPage");
 	option->SetRelativeCoord(22, 10);
-	
+
 	exit->PushString("Exit", "blue");
-	exit->SetName("exitPage");
+	exit->SetName("exitAskPage");
 	exit->SetRelativeCoord(24, 11);
 
 	return mainMenuPage;
@@ -130,11 +173,41 @@ Layout* LayoutFactory::optionPage()
 	return optionPage;
 }
 
+Layout* LayoutFactory::exitAskPage()
+{
+	Layout* exitAskPage = new Layout;
+	Layout* title = new Layout(exitAskPage);
+	Layout* body = new Layout(exitAskPage);
+	Menu* yes = new Menu(exitAskPage);
+	Menu* no = new Menu(exitAskPage);
+
+	exitAskPage->SetName("exitAskPage");
+	exitAskPage->SetCoord(7, 49);
+	exitAskPage->SetSize(20, 25);
+
+	title->SetRelativeCoord(0, 7);
+	title->PushString("* Exit *", "blue");
+
+	body->SetRelativeCoord(5, 4);
+	body->PushString("Are you sure ?", "white");
+
+	yes->SetRelativeCoord(9, 0);
+	yes->SetName("yes");
+	yes->PushString("[ Yes ]", "white");
+
+	no->SetRelativeCoord(9, 16);
+	no->SetName("no");
+	no->PushString("[ No ]", "white");
+
+	return exitAskPage;
+}
+
+
 Layout* LayoutFactory::exitPage()
 {
 	Layout* exitPage = new Layout;
-	Menu* title = new Menu(exitPage);
-	Menu* body = new Menu(exitPage);
+	Layout* title = new Layout(exitPage);
+	Layout* body = new Layout(exitPage);
 
 	exitPage->SetName("exitPage");
 	exitPage->SetCoord(7, 51);
@@ -218,7 +291,7 @@ Layout* LayoutFactory::startCalcPage(int startRow, int startCol)
 	advencedCalcSpec->PushString("");
 	advencedCalcSpec->PushString("* For advenced operations.");
 	advencedCalcSpec->PushString("");
-	advencedCalcSpec->PushString("* TouchScreen supprot.");
+	advencedCalcSpec->PushString("* TouchScreen support.");
 
 	advencedCalcMenu->SetName("advencedCalcSelect");
 	advencedCalcMenu->SetRelativeCoord(6, 81);

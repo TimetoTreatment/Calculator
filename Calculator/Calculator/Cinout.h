@@ -9,6 +9,7 @@ constexpr auto DOWN = 80;
 constexpr auto LEFT = 77;
 constexpr auto RIGHT = 75;
 constexpr auto ENTER = 13;
+constexpr auto ESC = 27;
 
 
 

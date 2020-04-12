@@ -19,8 +19,10 @@ public:
 
 	/* «¡∑π¿” */
 	Layout* mainFrame(int startRow = 0, int startCol = 0);
+	Layout* introPage(int startRow, int startCol);
 	Layout* mainMenuPage(int startRow, int startCol);
 	Layout* optionPage();
+	Layout* exitAskPage();
 	Layout* exitPage();
 	Layout* startCalcPage(int startRow, int startCol);
 };

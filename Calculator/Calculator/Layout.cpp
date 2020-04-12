@@ -193,6 +193,11 @@ string Layout::Selector()
 			cinout.eraseSideArrow(GetPart()->GetStartRow(), GetPart()->GetStartCol(), GetPart()->Peek());
 			return GetPart()->GetName();
 		}
+		else if (command == ESC)
+		{
+			cinout.eraseSideArrow(GetPart()->GetStartRow(), GetPart()->GetStartCol(), GetPart()->Peek());
+			return "ESC";
+		}
 	}
 
 
