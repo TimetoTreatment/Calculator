@@ -186,6 +186,7 @@ Layout* LayoutFactory::exitAskPage()
 	exitAskPage->SetName("exitAskPage");
 	exitAskPage->SetCoord(7, 49);
 	exitAskPage->SetSize(20, 25);
+	exitAskPage->SetPrevName("mainMenuPage");
 
 	title->SetRelativeCoord(0, 7);
 	title->PushString("* Exit *", "blue");
@@ -194,11 +195,11 @@ Layout* LayoutFactory::exitAskPage()
 	body->PushString("Are you sure ?", "white");
 
 	yes->SetRelativeCoord(9, 0);
-	yes->SetName("yes");
+	yes->SetName("exitPage");
 	yes->PushString("[ Yes ]", "white");
 
 	no->SetRelativeCoord(9, 16);
-	no->SetName("no");
+	no->SetName("mainMenuPage");
 	no->PushString("[ No ]", "white");
 
 	return exitAskPage;
@@ -300,9 +301,7 @@ Layout* LayoutFactory::startCalcPage(int startRow, int startCol)
 Layout* LayoutFactory::basicCalcPage()
 {
 	Layout* basicCalcPage = new Layout;
-
 	Layout* basicCalcLayout = new Layout(basicCalcPage);
-	Screen* basicCalcScreen = new Screen(basicCalcPage);
 
 	basicCalcPage->SetCoord(1, 2);
 	basicCalcPage->SetSize(28, 115);
@@ -317,6 +316,7 @@ Layout* LayoutFactory::basicCalcPage()
 	basicCalcLayout->PushString("| |                    9519 + 74351 | |");
 	basicCalcLayout->PushString("| |                         = 83870 | |");
 	basicCalcLayout->PushString("| |_________________________________| |");
+	basicCalcLayout->PushString("|                                     |");
 	basicCalcLayout->PushString("|  _______ _______ _______   _______  |");
 	basicCalcLayout->PushString("| |       |       |       | |       | |");
 	basicCalcLayout->PushString("| |   7   |   8   |   9   | |   +   | |");
@@ -333,17 +333,21 @@ Layout* LayoutFactory::basicCalcPage()
 	basicCalcLayout->PushString("| |       |       |       | |       | |");
 	basicCalcLayout->PushString("| |   .   |   0   |   =   | |   /   | |");
 	basicCalcLayout->PushString("| |       |       |       | |       | |");
-	basicCalcLayout->PushString("| |       |       |       | |       | |");
 	basicCalcLayout->PushString("| |_______|_______|_______| |_______| |");
 	basicCalcLayout->PushString("|_____________________________________|");
 
 
+	Button* numpad = new Button(basicCalcPage);
 
 
 
 
 
 
+
+
+
+	Screen* basicCalcScreen = new Screen(basicCalcPage);
 
 	//Layout* historyLayout = new Layout;
 	//Screen* historyScreen = new Screen;

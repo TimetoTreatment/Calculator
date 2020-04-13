@@ -78,3 +78,24 @@ void Cinout::eraseSideArrow(int startRow, int startCol, string str)
 	console.setCursorPositionDefault();
 	console.setCursorPositionDefault();
 }
+
+void Cinout::drawHighlight(int centerRow, int centerCol, string str)
+{
+	int row;
+	int col;
+
+
+
+
+
+}
+
+void Cinout::eraseHighlight(int centerRow, int centerCol, string str)
+{
+
+
+
+
+
+
+}

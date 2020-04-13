@@ -33,5 +33,7 @@ public:
 	void out(int startRow, int startCol, vector<string> contents, string textColor = "default", string backColor = "default");
 	void drawSideArrow(int startRow, int startCol, string str);
 	void eraseSideArrow(int startRow, int startCol, string str);
+	void drawHighlight(int startRow, int startCol, string str);
+	void eraseHighlight(int startRow, int startCol, string str);
 };
 

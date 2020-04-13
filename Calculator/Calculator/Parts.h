@@ -15,6 +15,7 @@ public:
 		_highlight = false;
 		_frame = frame;
 		_type = "parts";
+
 		frame->AddPart(this);
 
 

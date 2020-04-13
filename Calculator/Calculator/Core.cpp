@@ -13,9 +13,6 @@ void Core::Run()
 	Layout* exitAskPage = layoutFactory.exitAskPage();
 	Layout* exitPage = layoutFactory.exitPage();
 	Layout* basicCalcPage = layoutFactory.basicCalcPage();
-
-
-
 	string nextMenu = "mainMenuPage";
 	string currentMenu = "mainMenuPage";
 	string prevMenu = "mainMenuPage";
@@ -69,33 +66,28 @@ void Core::Run()
 
 
 
-		///////////////////
-		//*  ESC Check  *//
-		///////////////////
+		////////////////////
+		//*  Exit Check  *//
+		////////////////////
 
 		if (nextMenu == "exitAskPage")
 		{
-			if (currentMenu == "mainMenuPage")
+
+			exitAskPage->Print();
+
+			if ((nextMenu = exitAskPage->Select()) == "exitPage")
 			{
-				exitAskPage->Print();
-
-				if (exitAskPage->Select() == "yes")
-				{
-					exitAskPage->Erase();
-					exitPage->Print();
-					Sleep(1000);
-
-					delete exitPage;
-					break;
-				}
-				else
-					nextMenu = currentMenu;
-
 				exitAskPage->Erase();
+				exitPage->Print();
+				Sleep(1000);
+
+				delete exitPage;
+				break;
 			}
-			else
-				nextMenu = prevMenu;
+
+			exitAskPage->Erase();
 		}
+
 	}
 }
 
