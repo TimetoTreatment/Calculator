@@ -36,6 +36,7 @@ void Core::Run()
 		//*  Menu  *//
 		//////////////
 
+		// Phase 1
 		if (nextMenu == "mainMenuPage")
 		{
 			mainMenuPage->Print();
@@ -43,6 +44,7 @@ void Core::Run()
 			mainMenuPage->Erase();
 		}
 
+		// Phase 2
 		else if (nextMenu == "startCalcPage")
 		{
 			startCalcPage->Print();
@@ -57,13 +59,15 @@ void Core::Run()
 			optionPage->Erase();
 		}
 
+		// Phase 3
 		else if (nextMenu == "basicCalcPage")
 		{
 			basicCalcPage->Print();
+
 			nextMenu = basicCalcPage->Select();
+
 			basicCalcPage->Erase();
 		}
-
 
 
 		////////////////////
@@ -82,7 +86,7 @@ void Core::Run()
 				Sleep(1000);
 
 				delete exitPage;
-				break;
+				break;	// Loop END
 			}
 
 			exitAskPage->Erase();

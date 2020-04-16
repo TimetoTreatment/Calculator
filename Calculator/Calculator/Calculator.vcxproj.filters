@@ -50,34 +50,34 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Console.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Cinout.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Layout.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="LayoutFactory.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Screen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Core.h">
+    <ClInclude Include="Parts.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Parts.h">
+    <ClInclude Include="LayoutFactory.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Layout.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Cinout.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

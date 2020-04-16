@@ -14,8 +14,6 @@ private:
 	static string _mode;
 
 public:
-
-
 	int getMaxRow();
 	int getMaxCol();
 	int getDefaultRow();

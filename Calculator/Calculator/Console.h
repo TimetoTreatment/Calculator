@@ -12,7 +12,7 @@ private:
 	static HANDLE hConsole;
 
 	/* Change Color Name to Integer */
-	int colorNameToNumber(string& colorName);
+	int colorNameToNumber(const string& colorName) const;
 
 public:
 	/* Set Console Cursor Position */

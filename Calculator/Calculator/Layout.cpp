@@ -149,8 +149,8 @@ void Layout::Print()
 {
 	cinout.out(_startRow, _startCol, _strings, _textColor, _backColor);
 
-	for (size_t number = 0; number < _parts.size(); number++)
-		_parts[number]->Print();
+	for (auto& _part : _parts)
+		_part->Print();
 }
 
 
@@ -218,11 +218,11 @@ void Layout::DrawSelect()
 
 	else if (GetPart()->GetType() == "button")	// Draw Highlight
 	{
-		
 
 
 
-	
+
+
 	}
 
 	else if (GetPart()->GetType() == "screen")	// Draw Cursor Prompt

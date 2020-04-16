@@ -44,7 +44,7 @@ void Cinout::out(int startRow, int startCol, vector<string> contents, string tex
 		return;
 
 	console.setColor(textColor, backColor);
-
+	
 	for (size_t row = 0; row < contents.size() - 1; row++)
 	{
 		console.setCursorPosition(startRow + row, startCol);
@@ -81,8 +81,8 @@ void Cinout::eraseSideArrow(int startRow, int startCol, string str)
 
 void Cinout::drawHighlight(int centerRow, int centerCol, string str)
 {
-	int row;
-	int col;
+
+
 
 
 

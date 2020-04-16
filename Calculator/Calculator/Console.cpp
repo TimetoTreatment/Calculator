@@ -8,7 +8,7 @@ HANDLE Console::hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 //////////////////////////////////
 /* Change Color Name to Integer */
 //////////////////////////////////
-int Console::colorNameToNumber(string& colorName)
+int Console::colorNameToNumber(const string& colorName) const
 {
 	if (colorName == "default")
 		return -1;
@@ -64,16 +64,14 @@ void Console::setColorDefault()
 }
 
 
-
-
 void Console::setCursorPosition(int row, int col)
 {
 	//std::cout.flush();
-	SetConsoleCursorPosition(hConsole, COORD{ (short)col, (short)row });
+	SetConsoleCursorPosition(hConsole, { (short)col, (short)row });
 }
 
 void Console::setCursorPositionDefault()
 {
 	//std::cout.flush();
-	SetConsoleCursorPosition(hConsole, COORD{ (short)state.getDefaultCol() - 1, (short)state.getDefaultRow() });
+	SetConsoleCursorPosition(hConsole, { (short)state.getDefaultCol() - 1, (short)state.getDefaultRow() });
 }
